@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Fertilizers</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container-fluid text-center">
+    <div><h2>Manage Fertilizers</h2></div>
+    <div class="m-2">
+        <a class="h3" th:href="@{/fertilizers/new}">Add New Fertilizer</a>
+    </div>
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
+    <div>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>NAME</th>
+                <th>PRICE</th>
+                <th>QUANTITY</th>
+                <th>ACTION</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="fertilizer: ${listFertilizers}">
+                <tr>
+                    <td>[[${fertilizer.name}]]</td>
+                    <td>[[${fertilizer.price}]]</td>
+                    <td>[[${fertilizer.quantity}]]</td>
+                    <td>
+                        <a class="h4 mr-3" th:href="@{'/fertilizers/edit/' + ${fertilizer.id}}">Edit</a>
+                        <a class="h4" th:href="@{'/fertilizers/delete/' + ${fertilizer.id}}">Delete</a>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
