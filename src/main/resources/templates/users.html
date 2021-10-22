@@ -18,20 +18,20 @@
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
-                    <th>ID</th>
+                    <th>NAME</th>
                     <th>EMAIl</th>
-                    <th>FIRST NAME</th>
-                    <th>LAST NAME</th>
-                    <th>Action</th>
+                    <th>ADDRESS</th>
+                    <th>MOBILE NO</th>
+                    <th>ACTION</th>
                 </tr>
             </thead>
             <tbody>
                 <th:block th:each="user: ${listUsers}">
                     <tr>
-                        <td>[[${user.id}]]</td>
+                        <td>[[${user.name}]]</td>
                         <td>[[${user.email}]]</td>
-                        <td>[[${user.firstName}]]</td>
-                        <td>[[${user.lastName}]]</td>
+                        <td>[[${user.address}]]</td>
+                        <td>[[${user.mobileNo}]]</td>
                         <td>
                             <a class="h4 mr-3" th:href="@{'/users/edit/' + ${user.id}}">Edit</a>
                             <a class="h4" th:href="@{'/users/delete/' + ${user.id}}">Delete</a>

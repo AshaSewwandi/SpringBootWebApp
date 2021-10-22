@@ -1,24 +1,22 @@
-package com.example.Assignment1webapp.User;
+package com.example.Assignment1webapp.Complain;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name="users")
-public class User {
+@Table(name="complains")
+public class Complain {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false, unique = true, length = 45)
-    private String email;
-
-    @Column(nullable = false, length = 45)
+    @Column(nullable = true, length = 45)
     private String name;
 
-    @Column(nullable = false, length = 45)
-    private String address;
+    @Column(nullable = true, length = 45)
+    private String description;
 
-    @Column(nullable = false, length = 45)
+    @Column(nullable = true, length = 45)
     private String mobileNo;
 
     public Integer getId() {
@@ -29,14 +27,6 @@ public class User {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getName() {
         return name;
     }
@@ -45,12 +35,12 @@ public class User {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getDescription() {
+        return description;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getMobileNo() {
@@ -63,11 +53,10 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Complain{" +
                 "id=" + id +
-                ", email='" + email + '\'' +
                 ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
+                ", description='" + description + '\'' +
                 ", mobileNo='" + mobileNo + '\'' +
                 '}';
     }

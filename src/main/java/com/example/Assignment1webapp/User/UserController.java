@@ -51,7 +51,7 @@ public class UserController {
     }
 
     @GetMapping("/users/delete/{id}")
-    public String showEditForm(@PathVariable("id") Integer id,RedirectAttributes ra){
+    public String deleteUser(@PathVariable("id") Integer id,RedirectAttributes ra){
         try {
             service.delete(id);
             ra.addFlashAttribute("message", "The user ID " + id + "has been deleted.");

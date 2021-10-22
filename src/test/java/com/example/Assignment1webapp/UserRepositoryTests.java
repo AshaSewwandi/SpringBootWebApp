@@ -22,8 +22,9 @@ public class UserRepositoryTests {
     public void testAddNew(){
         User user = new User();
         user.setEmail("ravishana@gmail.com");
-        user.setFirstName("Ravishana");
-        user.setLastName("Chathuranga");
+        user.setName("Ravishana Chathuranga");
+        user.setAddress("Karapitiya, Galle");
+        user.setMobileNo("0713115900");
 
         User savedUser = repo.save(user);
 
@@ -41,10 +42,10 @@ public class UserRepositoryTests {
 
     @Test
     public void testUpdate(){
-        Integer userId = 2;
+        Integer userId = 1;
         Optional<User> optionalUser = repo.findById(userId);
         User user = optionalUser.get();
-        user.setFirstName("Asha");
+        user.setName("Wanigasekara");
         repo.save(user);
 
         User updateduser = repo.findById(userId).get();
@@ -53,14 +54,14 @@ public class UserRepositoryTests {
 
     @Test
     public void testGet(){
-        Integer userId = 2;
+        Integer userId = 1;
         Optional<User> optionalUser = repo.findById(userId);
         System.out.println(optionalUser.get());
     }
 
     @Test
     public void testDelete(){
-        Integer userId = 2;
+        Integer userId = 1;
         repo.deleteById(userId);
         Optional<User> optionalUser = repo.findById(userId);
     }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Complains</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container-fluid text-center">
+    <div><h2>Manage Complains</h2></div>
+    <div class="m-2">
+        <a class="h3" th:href="@{/complains/new}">Add New Complain</a>
+    </div>
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
+    <div>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>NAME</th>
+                <th>MOBILE NO</th>
+                <th>DESCRIPTION</th>
+                <th>ACTION</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="complain: ${listComplains}">
+                <tr>
+                    <td>[[${complain.name}]]</td>
+                    <td>[[${complain.mobileNo}]]</td>
+                    <td>[[${complain.description}]]</td>
+                    <td>
+                        <a class="h4 mr-3" th:href="@{'/complains/edit/' + ${complain.id}}">Edit</a>
+                        <a class="h4" th:href="@{'/complains/delete/' + ${complain.id}}">Delete</a>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
