@@ -42,7 +42,7 @@ public class UserController {
             User user = service.get(id);
             model.addAttribute("user", user);
             model.addAttribute("pageTitle", "Edit User(ID: " + id +")");
-            ra.addFlashAttribute("message", "The user ID " + id + "has been updated.");
+            ra.addFlashAttribute("message", "The user ID " + id + " has been updated.");
             return "user-form";
         } catch (UserNotFoundException e) {
             ra.addFlashAttribute("message", e.getMessage());
@@ -54,7 +54,7 @@ public class UserController {
     public String deleteUser(@PathVariable("id") Integer id,RedirectAttributes ra){
         try {
             service.delete(id);
-            ra.addFlashAttribute("message", "The user ID " + id + "has been deleted.");
+            ra.addFlashAttribute("message", "The user ID " + id + " has been deleted.");
         } catch (UserNotFoundException e) {
             ra.addFlashAttribute("message", e.getMessage());
         }

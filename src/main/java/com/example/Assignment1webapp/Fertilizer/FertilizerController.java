@@ -44,7 +44,7 @@ public class FertilizerController {
             Fertilizer fertilizer = service.get(id);
             model.addAttribute("fertilizer", fertilizer);
             model.addAttribute("pageTitle", "Edit Fertilizer(ID: " + id +")");
-            ra.addFlashAttribute("message", "The fertilizer ID " + id + "has been updated.");
+            ra.addFlashAttribute("message", "The fertilizer ID " + id + " has been updated.");
             return "fertilizer-form";
         } catch (FertilizerNotFoundException e) {
             ra.addFlashAttribute("message", e.getMessage());
@@ -60,6 +60,6 @@ public class FertilizerController {
         } catch (FertilizerNotFoundException e) {
             ra.addFlashAttribute("message", e.getMessage());
         }
-        return "redirect:/users";
+        return "redirect:/fertilizers";
     }
 }

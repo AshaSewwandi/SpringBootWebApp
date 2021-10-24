@@ -45,7 +45,7 @@ public class ComplainController {
             Complain complain = service.get(id);
             model.addAttribute("complain", complain);
             model.addAttribute("pageTitle", "Edit Complain(ID: " + id +")");
-            ra.addFlashAttribute("message", "The Complain ID " + id + "has been updated.");
+            ra.addFlashAttribute("message", "The Complain ID " + id + " has been updated.");
             return "complain-form";
         } catch (ComplainNotFoundException e) {
             ra.addFlashAttribute("message", e.getMessage());
@@ -57,7 +57,7 @@ public class ComplainController {
     public String deleteComplain(@PathVariable("id") Integer id,RedirectAttributes ra){
         try {
             service.delete(id);
-            ra.addFlashAttribute("message", "The complain ID " + id + "has been deleted.");
+            ra.addFlashAttribute("message", "The complain ID " + id + " has been deleted.");
         } catch (ComplainNotFoundException e) {
             ra.addFlashAttribute("message", e.getMessage());
         }
